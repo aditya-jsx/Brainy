@@ -14,7 +14,7 @@ export const Heroes = () => {
                          alt="boy_dark"
                         /> 
                     </div>
-                    <div className="relative w-[100px] h-[200px]">
+                    <div className="relative w-[100px] h-[200px] sm:w-[150px] sm:h-[150px] md:w-[150px] md:h-[300px]">
                         <Image
                          src="/girl_light.png"
                          fill
