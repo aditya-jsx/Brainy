@@ -43,7 +43,7 @@ export const Navbar = () => {
               <>
                 <Button variant="ghost" size="sm" asChild>  
                   <Link href="/documents">
-                    Enter Jotion
+                    Enter Brainy
                   </Link>
                 </Button>
                 <UserButton 

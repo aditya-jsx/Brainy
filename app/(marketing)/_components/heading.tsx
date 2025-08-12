@@ -18,7 +18,7 @@ export const Heading = () => {
             Your Ideas, Documents, & Plans, Unified. Welcome to <span className="underline">Brainy</span>
         </h1>
         <h3 className="text-base text-xl md:text-2xl font-medium">
-            Jotion is the connected workspace where <br />
+            Brainy is the connected workspace where <br />
             better, faster work happens
         </h3>
         {isLoading && (
@@ -29,7 +29,7 @@ export const Heading = () => {
         {isAuthenticated && !isLoading && (
           <Button asChild>
               <Link href="/documents">
-                Enter Jotion
+                Enter Brainy
                 <ArrowRight className="h-4 w-4 ml-2" />
               </Link>
           </Button>
