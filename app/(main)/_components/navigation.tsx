@@ -5,6 +5,7 @@ import { ChevronsLeft, MenuIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
+import UserItem from "./user-item";
 
 const Navigation = () => {
     const pathName = usePathname();
@@ -115,7 +116,7 @@ const Navigation = () => {
                     <ChevronsLeft className="h-6 w-6 hover:cursor-pointer" />
                 </div>
                 <div>
-                    <p>Action Items</p>
+                    <UserItem />
                 </div>
                 <div className="mt-4">
                     <p>Documents</p>
@@ -142,3 +143,151 @@ const Navigation = () => {
 };
 
 export default Navigation;
+
+
+
+
+
+
+
+
+
+
+
+// "use client";
+
+// import React, { useState, useRef, useEffect, useCallback } from "react";
+// import { ChevronsLeft, MenuIcon } from "lucide-react";
+// import { cn } from "@/lib/utils"; // Assuming you have a utility for classnames
+
+// export const ResizableSidebar = () => {
+//     // State to manage whether the sidebar is collapsed
+//     const [isCollapsed, setIsCollapsed] = useState(false);
+//     // State to manage the transition effect
+//     const [isResetting, setIsResetting] = useState(false);
+
+//     // Refs for DOM elements and tracking resize status
+//     const sidebarRef = useRef<HTMLDivElement>(null);
+//     const isResizingRef = useRef(false);
+
+//     // Function to collapse the sidebar
+//     const collapse = useCallback(() => {
+//         if (sidebarRef.current) {
+//             setIsCollapsed(true);
+//             setIsResetting(true);
+
+//             // Remove the inline width style to let CSS classes take over
+//             sidebarRef.current.style.removeProperty("width");
+
+//             // Allow the transition to finish before setting isResetting to false
+//             setTimeout(() => setIsResetting(false), 300);
+//         }
+//     }, []);
+
+//     // Function to expand the sidebar
+//     const open = useCallback(() => {
+//         if (sidebarRef.current) {
+//             setIsCollapsed(false);
+//             setIsResetting(true);
+//             // Allow the transition to finish before setting isResetting to false
+//             setTimeout(() => setIsResetting(false), 300);
+//         }
+//     }, []);
+
+//     // Mouse move handler to perform the resize
+//     const handleMouseMove = useCallback((event: MouseEvent) => {
+//         if (!isResizingRef.current || !sidebarRef.current) return;
+
+//         // Calculate the new width based on the mouse's horizontal position
+//         let newWidth = event.clientX;
+
+//         // Enforce min and max width constraints
+//         if (newWidth < 240) newWidth = 240;
+//         if (newWidth > 480) newWidth = 480;
+
+//         // Apply the new width to the sidebar
+//         sidebarRef.current.style.width = `${newWidth}px`;
+//     }, []);
+
+//     // Mouse up handler to stop resizing
+//     const handleMouseUp = useCallback(() => {
+//         isResizingRef.current = false;
+//         // Clean up global event listeners
+//         document.removeEventListener("mousemove", handleMouseMove);
+//         document.removeEventListener("mouseup", handleMouseUp);
+//     }, [handleMouseMove]);
+
+//     // Mouse down handler to start resizing
+//     const handleMouseDown = (
+//         event: React.MouseEvent<HTMLDivElement, MouseEvent>
+//     ) => {
+//         event.preventDefault();
+//         event.stopPropagation();
+
+//         isResizingRef.current = true;
+//         // Add global event listeners to track mouse movement across the page
+//         document.addEventListener("mousemove", handleMouseMove);
+//         document.addEventListener("mouseup", handleMouseUp);
+//     };
+
+//     return (
+//         <>
+//             {/* Sidebar */}
+//             <aside
+//                 ref={sidebarRef}
+//                 className={cn(
+//                     "group/sidebar h-full bg-secondary overflow-y-auto relative flex w-60 flex-col z-50",
+//                     // Apply transition only when resetting
+//                     isResetting && "transition-all ease-in-out duration-300",
+//                     // Apply collapsed styles
+//                     isCollapsed && "w-0 p-0"
+//                 )}
+//             >
+//                 {/* Collapse Button (inside sidebar) */}
+//                 <div
+//                     onClick={collapse}
+//                     role="button"
+//                     className={cn(
+//                         "h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 absolute top-3 right-2 opacity-0 group-hover/sidebar:opacity-100 transition",
+//                         // Don't show collapse button if already collapsed
+//                         isCollapsed && "opacity-0"
+//                     )}
+//                 >
+//                     <ChevronsLeft className="h-6 w-6" />
+//                 </div>
+                
+//                 {/* Sidebar Content */}
+//                 {!isCollapsed && (
+//                     <div className="p-4">
+//                         <h2 className="text-lg font-semibold">Sidebar</h2>
+//                         <p className="text-sm mt-2">
+//                             This is the sidebar content.
+//                         </p>
+//                     </div>
+//                 )}
+
+//                 {/* Resize Handle */}
+//                 <div
+//                     onMouseDown={handleMouseDown}
+//                     className="opacity-0 group-hover/sidebar:opacity-100 transition cursor-ew-resize absolute h-full w-1 bg-primary/10 right-0 top-0"
+//                 />
+//             </aside>
+
+//             {/* Main Content */}
+//             <main className="flex-grow p-4 relative">
+//                 {/* Open Button (Hamburger) */}
+//                 {isCollapsed && (
+//                     <MenuIcon
+//                         onClick={open}
+//                         role="button"
+//                         className="h-6 w-6 text-muted-foreground"
+//                     />
+//                 )}
+//                 <h1 className="text-2xl font-bold">Main Content</h1>
+//                 <p>This area will adjust its width automatically.</p>
+//             </main>
+//         </>
+//     );
+// };
+
+// export default ResizableSidebar;
