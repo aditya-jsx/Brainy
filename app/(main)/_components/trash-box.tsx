@@ -7,8 +7,9 @@ import { useState } from "react";
 import { Id } from "@/convex/_generated/dataModel";
 import { toast } from "sonner";
 import { Spinner } from "@/components/spinner";
-import { Search } from "lucide-react";
+import { Search, Trash, Undo } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { ConfirmModalProps } from "@/components/modals/confirm-modal";
 
 export const TrashBox = () => {
 
@@ -81,8 +82,37 @@ export const TrashBox = () => {
                 />
             </div>
             <div className="mt-2 px-1 pb-1">
-                <p className="hidden last:blocktext-sm text-center text-muted-foreground coloour pb-2">No do cumnets found</p>
+                <p className="hidden last:blocktext-sm text-center text-muted-foreground colour pb-2">No documents found</p>
             </div>
+            {filterDocuments?.map((document)=>(
+                <div
+                key={document._id}
+                role="button"
+                onClick={()=>onClick(document._id)}
+                className="text-sm rounded-sm w-full hover:bg-primary/5 flex items-center text-primary justify-between"
+                >
+                    <span className="truncate pl-2">
+                        {document.title}
+                    </span>
+                    <div className="flex items-center">
+                        <div 
+                        className="rounded-sm p-2 hover:bg-nuetral-200"
+                        onClick={(e)=>{onRestore(e, document._id)}}
+                        role="button"
+                        >
+                            <Undo className="h-4 w-4 text-muted-foreground" />
+                        </div>
+                        <ConfirmModal onClick={()=>{() => onRemove(document._id)}}>
+                        <div
+                        className="rounded-sm p-2 hover:bg-nuetral-200"
+                        role="button"
+                        >
+                            <Trash className="h-4 w-4 text-muted-foreground"/>
+                        </div>
+                        </ConfirmModal>
+                    </div>
+                </div>
+            ))}
         </div>
     );
 }
