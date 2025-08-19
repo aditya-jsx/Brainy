@@ -64,7 +64,7 @@ export const Documentlist = ({
                 level === 0 && "hidden"
             )}
             >
-                {/* No pages inside */}
+                No pages inside
             </p>
             {documents.map((document)=>{
                 return(

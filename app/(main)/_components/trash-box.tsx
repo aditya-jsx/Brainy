@@ -71,13 +71,13 @@ export const TrashBox = () => {
     };
     
     return(
-        <div className="text-sm w-full bg-black rounded-lg absolute">
+        <div className="text-sm w-full dark:bg-black bg-primary/10  rounded-lg absolute p-2">
             <div className="flex items-center gap-x-1 p-2">
                 <Search className="h-4 w-4" />
                 <Input 
                 value={search}
                 onChange={(e) => {e.target.value}}
-                className="h-7 focus-visible:ring-transparent bg-primary"
+                className="h-7 focus-visible:ring-transparent dark:bg-zinc-900 bg-primary/20"
                 placeholder="Filter by page title...."
                 />
             </div>
@@ -95,14 +95,14 @@ export const TrashBox = () => {
                 key={document._id}
                 role="button"
                 onClick={()=>onClick(document._id)}
-                className="text-sm rounded-sm w-full hover:bg-primary/5 flex items-center text-primary justify-between"
+                className="text-sm rounded-sm w-full hover:bg-primary/5 flex items-center text-primary justify-between hover:cursor-pointer"
                 >
                     <span className="truncate pl-2">
                         {document.title}
                     </span>
                     <div className="flex items-center">
                         <div 
-                        className="rounded-sm p-2 hover:bg-nuetral-200"
+                        className="rounded-sm p-2 dark:hover:bg-zinc-900 hover:bg-primary/10 hover:cursor-pointer"
                         onClick={(e)=>{onRestore(e, document._id)}}
                         role="button"
                         >
@@ -110,7 +110,7 @@ export const TrashBox = () => {
                         </div>
                         <ConfirmModal onConfirm={() => onRemove(document._id)}>
                         <div
-                        className="rounded-sm p-2 hover:bg-nuetral-200"
+                        className="rounded-sm p-2 dark:hover:bg-zinc-900 hover:bg-primary/10 hover:cursor-pointer"
                         role="button"
                         >
                             <Trash className="h-4 w-4 text-muted-foreground"/>
