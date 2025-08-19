@@ -71,19 +71,23 @@ export const TrashBox = () => {
     };
     
     return(
-        <div className="text-sm">
+        <div className="text-sm w-full bg-black rounded-lg absolute">
             <div className="flex items-center gap-x-1 p-2">
                 <Search className="h-4 w-4" />
                 <Input 
                 value={search}
                 onChange={(e) => {e.target.value}}
-                className="h-7 focus-visible:ring-transparent bg-secondary"
+                className="h-7 focus-visible:ring-transparent bg-primary"
                 placeholder="Filter by page title...."
                 />
             </div>
             <div className="mt-2 px-1 pb-1">
                 <p className="hidden last:block text-sm text-center text-muted-foreground colour pb-2">
-                    No documents found
+                    {documents.length==0? (
+                        "No documents found"
+                    ) : (
+                        ""
+                    )}
                 </p>
             </div>
             {filterDocuments?.map((document)=>(
