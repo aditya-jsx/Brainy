@@ -145,7 +145,7 @@ export const getTrash = query({
             .query("documents")
             .withIndex("by_user", (q) => q.eq("userId", userId))
             .filter((q) => 
-                q.eq(q.field("isArchived"), true),
+                q.eq(q.field("isArchived"), true)
             )
             .order("desc")
             .collect();
@@ -257,8 +257,8 @@ export const getSearch = query({
          .withIndex("by_user", (q) => q.eq("userId", userId))
          .filter((q) => 
             q.eq(q.field("isArchived"), false))
-        .order("desc")
-        .collect()
+         .order("desc")
+         .collect()
 
         return documents;
     }   
