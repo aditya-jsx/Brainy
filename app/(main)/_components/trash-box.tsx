@@ -9,7 +9,7 @@ import { toast } from "sonner";
 import { Spinner } from "@/components/spinner";
 import { Search, Trash, Undo } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { ConfirmModalProps } from "@/components/modals/confirm-modal";
+import { ConfirmModal } from "@/components/modals/confirm-modal";
 
 export const TrashBox = () => {
 
@@ -82,7 +82,9 @@ export const TrashBox = () => {
                 />
             </div>
             <div className="mt-2 px-1 pb-1">
-                <p className="hidden last:blocktext-sm text-center text-muted-foreground colour pb-2">No documents found</p>
+                <p className="hidden last:block text-sm text-center text-muted-foreground colour pb-2">
+                    No documents found
+                </p>
             </div>
             {filterDocuments?.map((document)=>(
                 <div
@@ -102,7 +104,7 @@ export const TrashBox = () => {
                         >
                             <Undo className="h-4 w-4 text-muted-foreground" />
                         </div>
-                        <ConfirmModal onClick={()=>{() => onRemove(document._id)}}>
+                        <ConfirmModal onConfirm={() => onRemove(document._id)}>
                         <div
                         className="rounded-sm p-2 hover:bg-nuetral-200"
                         role="button"

@@ -3,15 +3,15 @@
 import { AlertDialog, AlertDialogAction, AlertDialogContent, AlertDialogCancel, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "../ui/alert-dialog";
 
 
-interface ConfirmModalProps {
+interface ConfirmModal {
     children: React.ReactNode;
     onConfirm: () => void;
 };
 
-export const ConfirmModalProps = ({children, onConfirm}:ConfirmModalProps) => {
+export const ConfirmModal = ({children, onConfirm}:ConfirmModal) => {
 
     const handleConfirm = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        event?.stopPropagation();
+        e?.stopPropagation();
         onConfirm();
     };  
 
@@ -23,7 +23,7 @@ export const ConfirmModalProps = ({children, onConfirm}:ConfirmModalProps) => {
             <AlertDialogContent>
                 <AlertDialogHeader>
                     <AlertDialogTitle>
-                        Are you absolute;y sure????
+                        Are you sure?
                     </AlertDialogTitle>
                     <AlertDialogDescription>
                         This aciton can not be undone
@@ -33,7 +33,7 @@ export const ConfirmModalProps = ({children, onConfirm}:ConfirmModalProps) => {
                     <AlertDialogCancel onClick={e => e.stopPropagation()}>
                         Cancel
                     </AlertDialogCancel>
-                    <AlertDialogAction>
+                    <AlertDialogAction onClick={handleConfirm}>
                         Confirm
                     </AlertDialogAction>
                 </AlertDialogFooter>
