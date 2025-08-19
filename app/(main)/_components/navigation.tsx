@@ -17,7 +17,10 @@ import { Popover, PopoverTrigger } from "@/components/ui/popover";
 import { PopoverContent } from "@radix-ui/react-popover";
 import { TrashBox } from "./trash-box";
 
+import { useSearch } from "@/hooks/use-search";
+
 const Navigation = () => {
+    const search = useSearch();
     const pathName = usePathname();
     const isMobile = useMediaQuery("(max-width: 768px)");
     const create = useMutation(api.documents.create);
@@ -143,7 +146,7 @@ const Navigation = () => {
                         label="search"
                         icon={Search}
                         isSearch
-                        onClick={()=>{}}    
+                        onClick={search.onOpen}    
                     />
                     <Item 
                         label="Settings"
