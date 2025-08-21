@@ -1,47 +1,3 @@
-// "use client";
-
-// import {
-//     BlockNoteEditor,
-//     PartialBlock
-// } from "@blocknote/core";
-// import { useBlockNote } from "@blocknote/react";
-// import {BlockNoteView} from "@blocknote/shadcn";
-// import "@blocknote/shadcn/style.css";
-// import "@blocknote/core/style.css";
-// import { useTheme } from "next-themes";
-
-// interface EditorProps {
-//     onChange: (value: string) => void;
-//     initialContent?: string;
-//     editable?: boolean;
-// }
-
-// export const Editor = ({
-//     onChange,
-//     initialContent,
-//     editable
-// }:EditorProps) => {
-//     const {resolvedTheme} = useTheme();
-
-//     const editor: BlockNoteEditor = useBlockNote({
-//         editable,
-//         initialContent: initialContent ? JSON.parse(initialContent) as PartialBlock[] : undefined,
-//         onEditorContentChange: (editor) => {
-//             onChange(JSON.stringify(editor.topLevelBlocks, null, 2));
-//         },
-//     });
-
-//     return(
-//         <div className="">
-//             <BlockNoteView 
-//             onChange={editor} 
-//             theme={resolvedTheme === "dark" ? "dark" : "light"}
-//             />
-//         </div>
-//     )
-// }
-
-
 "use client";
 
 import {
@@ -53,6 +9,7 @@ import { BlockNoteView } from "@blocknote/shadcn";
 import "@blocknote/shadcn/style.css";
 import "@blocknote/core/style.css";
 import { useTheme } from "next-themes";
+import { useEdgeStore } from "@/lib/edgestore";
 
 interface EditorProps {
     onChange: (value: string) => void;
@@ -60,12 +17,22 @@ interface EditorProps {
     editable?: boolean;
 }
 
-export const Editor = ({
+const Editor = ({
     onChange,
     initialContent,
     editable
 }: EditorProps) => {
     const { resolvedTheme } = useTheme();
+    const { edgestore } = useEdgeStore();
+
+    const handleUpload= async (file: File) => {
+        const response = await edgestore.publicFiles.upload({
+            file
+        });
+
+        return response.url;
+    }
+
 
     // 1. Removed the deprecated `onEditorContentChange` from here.
     const editor: BlockNoteEditor = useBlockNote({
@@ -73,10 +40,11 @@ export const Editor = ({
         initialContent: initialContent
             ? JSON.parse(initialContent) as PartialBlock[]
             : undefined,
+        uploadFile: handleUpload
     });
 
     return (
-        <div>
+        <div className="editor-wrapper">
             {/* 2. Added the required `editor` prop and the `onChange` handler. */}
             <BlockNoteView
                 editor={editor}
@@ -88,3 +56,5 @@ export const Editor = ({
         </div>
     )
 }
+
+export default Editor;
