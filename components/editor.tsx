@@ -36,7 +36,7 @@ const Editor = ({
 
     // 1. Removed the deprecated `onEditorContentChange` from here.
     const editor: BlockNoteEditor = useBlockNote({
-        editable,
+        editable: editable,
         initialContent: initialContent
             ? JSON.parse(initialContent) as PartialBlock[]
             : undefined,

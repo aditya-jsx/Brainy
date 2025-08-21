@@ -60,6 +60,9 @@ export const Menu = ({
             >
                 <DropdownMenuItem onClick={onArchive}>
                     <Trash className="h-4 w-4 mr-2" />
+                    <div>
+                        Delete
+                    </div>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <div className="text-xs text-muted-foregroud p-2 ">
