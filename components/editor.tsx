@@ -34,9 +34,8 @@ const Editor = ({
     }
 
 
-    // 1. Removed the deprecated `onEditorContentChange` from here.
     const editor: BlockNoteEditor = useBlockNote({
-        editable: editable,
+        editable,
         initialContent: initialContent
             ? JSON.parse(initialContent) as PartialBlock[]
             : undefined,
@@ -45,7 +44,6 @@ const Editor = ({
 
     return (
         <div className="editor-wrapper">
-            {/* 2. Added the required `editor` prop and the `onChange` handler. */}
             <BlockNoteView
                 editor={editor}
                 onChange={() => {
