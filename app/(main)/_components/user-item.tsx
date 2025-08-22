@@ -1,8 +1,8 @@
 "use client";
 
-import { ChevronsLeftRight, ChevronsLeftRightIcon, LucideChevronsLeftRight } from "lucide-react";
+import { ChevronsLeftRight } from "lucide-react";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { SignOutButton, useUser } from "@clerk/nextjs";
 
 const UserItem = () => {
