@@ -9,7 +9,7 @@ import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { toast } from "sonner";
 
-const documentsPage = () => {
+const DocumentsPage = () => {
 
     const router = useRouter();
     const {user} = useUser();
@@ -56,4 +56,4 @@ const documentsPage = () => {
     )
 }
 
-export default documentsPage;
+export default DocumentsPage;
