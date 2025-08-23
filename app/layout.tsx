@@ -88,12 +88,12 @@ export const metadata: Metadata = {
     icon: [
       {
         media: "(prefers-color-scheme: light)",
-        url: "/notion-light.svg",
-        href: "/notion-light.svg",
+        url: "/logo.png",
+        href: "/logo.png",
       },{
         media: "(prefers-color-scheme: dark)",
-        url: "/notion-dark.svg",
-        href: "/notion-dark.svg",
+        url: "/logo.png",
+        href: "/logo.png",
       }
     ]
   }
