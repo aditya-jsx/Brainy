@@ -91,7 +91,7 @@ export function Heroes() {
           </h2>
 
           <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Join thousands who have revolutionized their workflow with Brainy. Start capturing,
+            Join us to revolutionize your workflow with Brainy. Start capturing,
             organizing, and sharing your ideas like never before.
           </p>
 
