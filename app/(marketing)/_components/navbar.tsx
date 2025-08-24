@@ -216,7 +216,7 @@ export const Navbar = () => {
     <nav
       className={cn(
         "fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-transform duration-300",
-        "bg-background/80 dark:bg-[#1F1F1F]/80 backdrop-blur-sm border border-transparent",
+        "bg-background/80 dark:bg-[#1F1F1F]/80 backdrop-blur-[10px] border border-transparent",
         scrolled && "border-neutral-200 dark:border-neutral-800 shadow-sm",
         isMobileMenuOpen
           ? "w-[70%] rounded-2xl bg-background dark:bg-[#1F1F1F] bg-white"
