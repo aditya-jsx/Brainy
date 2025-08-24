@@ -1,3 +1,84 @@
+// "use client";
+
+// import { Id } from "@/convex/_generated/dataModel";
+// import {
+//     DropdownMenu,
+//     DropdownMenuTrigger,
+//     DropdownMenuContent,
+//     DropdownMenuItem,
+//     DropdownMenuSeparator
+// } from "@/components/ui/dropdown-menu"
+
+// import { useUser } from "@clerk/nextjs";
+// import { useRouter } from "next/navigation";
+// import { useMutation } from "convex/react";
+// import { api } from "@/convex/_generated/api";
+// import { toast } from "sonner";
+// import { Button } from "@/components/ui/button";
+// import { MoreHorizontal, Trash } from "lucide-react";
+// import { Skeleton } from "@/components/ui/skeleton";
+
+
+// interface MenuProps {
+//     documentId: Id<"documents">;
+// };
+
+// export const Menu = ({
+//     documentId
+// }: MenuProps) => {
+
+//     const router = useRouter();
+//     const {user} = useUser();
+
+//     const archive = useMutation(api.documents.archive);
+
+//     const onArchive = () => {
+//         const promise = archive({ id: documentId })
+
+//         toast.promise(promise, {
+//             loading: "Moving to trash...",
+//             success: "Note moved to trash!",
+//             error: "Failed to archive note"
+//         });
+
+//         router.push("/documents");
+//     };
+
+//     return(
+//         <DropdownMenu>
+//             <DropdownMenuTrigger asChild>
+//                 <Button size="sm" variant="ghost" className="h-4 w-4">
+//                     <MoreHorizontal />
+//                 </Button>
+//             </DropdownMenuTrigger>
+//             <DropdownMenuContent 
+//             className="w-60"
+//             align="end"
+//             alignOffset={8}
+//             forceMount
+//             >
+//                 <DropdownMenuItem onClick={onArchive}>
+//                     <Trash className="h-4 w-4 mr-2" />
+//                     <div>
+//                         Delete
+//                     </div>
+//                 </DropdownMenuItem>
+//                 <DropdownMenuSeparator />
+//                 <div className="text-xs text-muted-foregroud p-2 ">
+//                     Last edited by: {user?.fullName}
+//                 </div>
+//             </DropdownMenuContent>
+//         </DropdownMenu>
+//     )
+// }
+
+// Menu.Skeleton = function MenuSkeleton(){
+//     return(
+//         <Skeleton className="h-10 w-10" />
+//     )
+// }
+
+
 "use client";
 
 import { Id } from "@/convex/_generated/dataModel";
@@ -7,7 +88,7 @@ import {
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuSeparator
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
@@ -18,7 +99,6 @@ import { Button } from "@/components/ui/button";
 import { MoreHorizontal, Trash } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 
-
 interface MenuProps {
     documentId: Id<"documents">;
 };
@@ -26,54 +106,55 @@ interface MenuProps {
 export const Menu = ({
     documentId
 }: MenuProps) => {
-
     const router = useRouter();
-    const {user} = useUser();
-
+    const { user } = useUser();
     const archive = useMutation(api.documents.archive);
 
     const onArchive = () => {
-        const promimse = archive({ id: documentId })
+        // 1. Correct the typo from "promimse" to "promise"
+        const promise = archive({ id: documentId });
 
-        toast.promise(promimse, {
+        toast.promise(promise, {
             loading: "Moving to trash...",
             success: "Note moved to trash!",
-            error: "Failed to archive note"
+            error: "Failed to archive note."
         });
-
-        router.push("/documents");
+        
+        // 2. Wait for the promise to succeed before navigating
+        promise.then(() => {
+            router.push("/documents");
+        });
     };
 
-    return(
+    return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button size="sm" variant="ghost" className="h-4 w-4">
-                    <MoreHorizontal />
+                {/* Use a slightly larger, self-closing button for better click area */}
+                <Button size="sm" variant="ghost">
+                    <MoreHorizontal className="h-4 w-4" />
                 </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent 
-            className="w-60"
-            align="end"
-            alignOffset={8}
-            forceMount
+            <DropdownMenuContent
+                className="w-60"
+                align="end"
+                alignOffset={8}
+                forceMount
             >
                 <DropdownMenuItem onClick={onArchive}>
                     <Trash className="h-4 w-4 mr-2" />
-                    <div>
-                        Delete
-                    </div>
+                    Delete
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <div className="text-xs text-muted-foregroud p-2 ">
+                <div className="text-xs text-muted-foreground p-2">
                     Last edited by: {user?.fullName}
                 </div>
             </DropdownMenuContent>
         </DropdownMenu>
-    )
+    );
 }
 
-Menu.Skeleton = function MenuSkeleton(){
-    return(
+Menu.Skeleton = function MenuSkeleton() {
+    return (
         <Skeleton className="h-10 w-10" />
-    )
+    );
 }

@@ -41,13 +41,13 @@
 // //             )}
 // //             {isAuthenticated && !isLoading && (
 // //               <>
-// //                 <Button variant="ghost" size="sm" asChild>  
+// //                 <Button variant="ghost" size="sm" asChild>
 // //                   <Link href="/documents">
 // //                     Enter Brainy
 // //                   </Link>
 // //                 </Button>
-// //                 <UserButton 
-// //                   afterSignOutUrl="/" 
+// //                 <UserButton
+// //                   afterSignOutUrl="/"
 // //                 />
 // //               </>
 // //             )}
@@ -56,9 +56,6 @@
 // //         </div>
 // //     )
 // // }
-
-
-
 
 // "use client";
 
@@ -161,9 +158,6 @@
 //   );
 // };
 
-
-
-
 "use client";
 
 import { useState } from "react";
@@ -214,36 +208,39 @@ export const Navbar = () => {
           <UserButton afterSignOutUrl="/" />
         </>
       )}
-      <ModeToggle />
+      {/* <ModeToggle /> */}
     </>
   );
 
   return (
     <nav
       className={cn(
-        "fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300",
+        "fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-transform duration-300",
         "bg-background/80 dark:bg-[#1F1F1F]/80 backdrop-blur-sm border border-transparent",
         scrolled && "border-neutral-200 dark:border-neutral-800 shadow-sm",
         isMobileMenuOpen
-          ? "w-[90%] max-w-lg rounded-2xl bg-background dark:bg-[#1F1F1F]"
+          ? "w-[70%] rounded-2xl bg-background dark:bg-[#1F1F1F] bg-white"
           : "w-auto rounded-full"
       )}
     >
-      <div className="flex items-center w-[30rem] h-[4rem] justify-between p-2 px-4 gap-4">
+      <div className="flex items-center lg:w-[30rem] lg:h-[4rem] justify-between p-2 px-4 gap-4">
         {/* Logo */}
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
             <span className="text-black font-bold text-lg">B</span>
           </div>
-          <h1 className={cn("text-xl font-medium", isMobileMenuOpen && "hidden xs:block")}>
+          <h1
+            className={cn(
+              "text-xl font-medium",
+              isMobileMenuOpen && "hidden xs:block"
+            )}
+          >
             Brainy
           </h1>
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-x-4">
-          {navContent}
-        </div>
+        <div className="hidden md:flex items-center gap-x-4">{navContent}</div>
 
         {/* Mobile Menu Button */}
         <Button
@@ -252,18 +249,29 @@ export const Navbar = () => {
           className="md:hidden"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {isMobileMenuOpen ? (
+            <X className="h-6 w-6" />
+          ) : (
+            <Menu className="h-6 w-6" />
+          )}
         </Button>
       </div>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden px-4 pb-4 pt-2">
-          <div className="flex flex-col items-center space-y-4 pt-4 border-t">
+      <div
+        className={cn(
+          "md:hidden overflow-hidden transition-all duration-600 ease-in-out", // <-- Added
+          isMobileMenuOpen
+            ? "max-h-96 opacity-100" // use max-h instead of h-full for smoother animation
+            : "max-h-0 opacity-0"
+        )}
+      >
+        <div className="px-4 pb-4 pt-2">
+          <div className="flex flex-col h-full w-full items-start space-y-4 pt-4 border-t">
             {navContent}
           </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 };

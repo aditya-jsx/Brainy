@@ -154,11 +154,11 @@ const Navigation = () => {
                         isSearch
                         onClick={search.onOpen}    
                     />
-                    <Item 
+                    {/* <Item 
                         label="Settings"
                         icon={Settings}
                         onClick={settings.onOpen}    
-                    />
+                    /> */}
                     <Item
                         onClick={handleCreate}
                         label="New Page"

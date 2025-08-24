@@ -57,7 +57,7 @@ export function Heroes() {
   const { isAuthenticated, isLoading } = useConvexAuth();
 
   return (
-    <section className="py-24 px-4 relative overflow-hidden bg-black h-full w-full">
+    <section className="lg:py-24 py-8 px-4 relative overflow-hidden bg-black h-full w-full">
       {/* Background with dramatic lighting */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.1),transparent_70%)]" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full blur-3xl" />

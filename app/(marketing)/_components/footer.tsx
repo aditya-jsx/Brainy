@@ -22,41 +22,48 @@
 
 import { Button } from "@/components/ui/button"
 import { Github, Twitter, Linkedin, Mail } from "lucide-react"
+import Link from "next/link"
 
 export function Footer() {
   return (
-    <footer className="bg-card border-t border-white/10 py-16">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+    <footer className="bg-card border-t border-white/10 py-16 lg:py-8">
+      <div className="container lg:flex lg:flex-col lg:items-center lg:justify-center mx-auto px-4">
+        <div className="lg:flex grid grid-cols-1 md:grid-cols-4 gap-12 mb-12 lg:mb-0">
           {/* Brand */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-black font-bold text-lg">B</span>
+            <div className="flex items-center lg:justify-center space-x-2 lg:gap-10">
+              <div className="w-8 h-8 lg:w-40 lg:h-40 bg-white  rounded-lg flex items-center justify-center">
+                <span className="text-black font-bold text-lg lg:text-[10rem] lg:pb-4">B</span>
               </div>
-              <span className="text-white font-bold text-xl font-sans">Brainy</span>
+              <span className="text-white font-bold text-xl lg:text-[10rem] font-sans">Brainy</span>
             </div>
-            <p className="text-white/70 font-manrope">
+            <p className="text-white/70 lg:text-white/80 font-manrope text-center lg:text-xl">
               The future of note-taking. Organize your thoughts with style and intelligence.
             </p>
             <div className="flex space-x-4">
-              <Button variant="ghost" size="icon" className="text-white/70 hover:text-white">
+              {/* <Button variant="ghost" size="icon" className="text-white/70 hover:text-white">
                 <Twitter className="h-5 w-5" />
+              </Button> */}
+              <Button variant="ghost" size="icon" className="text-white/70 hover:text-white">
+                <Link href="https://github.com/aditya-jsx">
+                  <Github className="h-5 w-5" />
+                </Link>
               </Button>
               <Button variant="ghost" size="icon" className="text-white/70 hover:text-white">
-                <Github className="h-5 w-5" />
+                <Link href="https://www.linkedin.com/in/reachshrivastav/">
+                  <Linkedin className="h-5 w-5" />
+                </Link>
               </Button>
               <Button variant="ghost" size="icon" className="text-white/70 hover:text-white">
-                <Linkedin className="h-5 w-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="text-white/70 hover:text-white">
-                <Mail className="h-5 w-5" />
+                <Link href="mailto:devs.aadi20@gmail.com">
+                  <Mail className="h-5 w-5" />
+                </Link>
               </Button>
             </div>
           </div>
 
           {/* Product */}
-          <div className="space-y-4">
+          {/* <div className="space-y-4">
             <h3 className="text-white font-bold font-sans">Product</h3>
             <div className="space-y-2">
               <a href="#" className="block text-white/70 hover:text-white transition-colors font-manrope">
@@ -72,10 +79,10 @@ export function Footer() {
                 Integrations
               </a>
             </div>
-          </div>
+          </div> */}
 
           {/* Company */}
-          <div className="space-y-4">
+          {/* <div className="space-y-4">
             <h3 className="text-white font-bold font-sans">Company</h3>
             <div className="space-y-2">
               <a href="#" className="block text-white/70 hover:text-white transition-colors font-manrope">
@@ -91,10 +98,10 @@ export function Footer() {
                 Contact
               </a>
             </div>
-          </div>
+          </div> */}
 
           {/* Support */}
-          <div className="space-y-4">
+          {/* <div className="space-y-4">
             <h3 className="text-white font-bold font-sans">Support</h3>
             <div className="space-y-2">
               <a href="#" className="block text-white/70 hover:text-white transition-colors font-manrope">
@@ -111,10 +118,10 @@ export function Footer() {
               </a>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Newsletter */}
-        <div className="border-t border-white/10 pt-12 mb-12">
+        {/* <div className="border-t border-white/10 pt-12 mb-12">
           <div className="max-w-2xl mx-auto text-center space-y-4">
             <h3 className="text-2xl font-bold font-sans text-white">Stay Updated</h3>
             <p className="text-white/70 font-manrope">
@@ -128,14 +135,14 @@ export function Footer() {
               />
               <Button className="bg-white text-black hover:bg-white/90 px-6">Subscribe</Button>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <p className="text-white/50 font-manrope text-sm">© 2024 Brainy. All rights reserved.</p>
-          <div className="flex space-x-6 text-sm">
-            <a href="#" className="text-white/50 hover:text-white transition-colors font-manrope">
+        <div className="lg:border-none border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          {/* <p className="text-white/50 font-manrope text-sm">© 2024 Brainy. All rights reserved.</p> */}
+          <div className="lg:block flex space-x-6 text-sm">
+            {/* <a href="#" className="text-white/50 hover:text-white transition-colors font-manrope">
               Privacy Policy
             </a>
             <a href="#" className="text-white/50 hover:text-white transition-colors font-manrope">
@@ -143,6 +150,9 @@ export function Footer() {
             </a>
             <a href="#" className="text-white/50 hover:text-white transition-colors font-manrope">
               Cookie Policy
+            </a> */}
+            <a href="https://github.com/aditya-jsx" className="text-white hover:text-blue-300 transition-colors font-manrope">
+              Made By - Aditya Shrivastav😎
             </a>
           </div>
         </div>
