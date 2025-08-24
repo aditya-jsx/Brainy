@@ -50,15 +50,27 @@ import { SignInButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/spinner";
+// import Image from "next/image";
+// import bg from "../../../public/hero-bg.png"
 
 export function Heroes() {
   const { isAuthenticated, isLoading } = useConvexAuth();
 
   return (
-    <section className="py-24 px-4 relative overflow-hidden bg-black">
+    <section className="py-24 px-4 relative overflow-hidden bg-black h-full w-full">
       {/* Background with dramatic lighting */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.1),transparent_70%)]" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
+
+      {/* <Image
+        src={bg}
+        alt="Futuristic abstract background"
+        fill
+        className="object-cover absolute w-full h-full z-0"
+        priority // Add priority if this is your LCP (Largest Contentful Paint) image
+      /> */}
+
+      {/* <div className="absolute inset-0 bg-black/30 z-0" /> */}
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <motion.div
