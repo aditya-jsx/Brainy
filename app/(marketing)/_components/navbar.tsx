@@ -260,9 +260,9 @@ export const Navbar = () => {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "md:hidden overflow-hidden transition-all duration-600 ease-in-out", // <-- Added
+          "md:hidden overflow-hidden ", // <-- Added
           isMobileMenuOpen
-            ? "max-h-96 opacity-100" // use max-h instead of h-full for smoother animation
+            ? "max-h-96 opacity-100 transition-all duration-800 ease-in-out" // use max-h instead of h-full for smoother animation
             : "max-h-0 opacity-0"
         )}
       >
