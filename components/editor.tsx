@@ -66,10 +66,11 @@ import {
 } from "@blocknote/core";
 import { useBlockNote } from "@blocknote/react";
 import { BlockNoteView } from "@blocknote/shadcn";
-import "@blocknote/shadcn/style.css";
-import "@blocknote/core/style.css";
+// import "@blocknote/shadcn/style.css";
+// import "@blocknote/core/style.css";
 import { useTheme } from "next-themes";
 import { useEdgeStore } from "@/lib/edgestore";
+import "./editor.css"
 
 interface EditorProps {
     onChange: (value: string) => void;

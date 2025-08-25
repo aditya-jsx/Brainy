@@ -1,0 +1,66 @@
+@import "@blocknote/core/style.css";
+@import "@blocknote/shadcn/style.css";
+
+.dark .bn-container[data-color-scheme="dark"] .bn-editor {
+  background-color: transparent !important;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  padding-left: 3.5rem;
+  padding-top: 1.5rem;
+}
+
+.bn-shadcn.dark {
+  /* Background color of the menu popover */
+  --popover: 0 0% 0%;
+  
+  /* Text color for items in the menu */
+  --popover-foreground: 210 40% 98%;
+
+  /* Background color when hover over or select an item */
+  --accent: 0 0% 25%;
+
+  /* Text color when you hover over or select an item */
+  --accent-foreground: 210 40% 98%;
+}
+
+.dark .bn-container [data-file-block] .bn-add-file-button,
+.dark .bn-container [data-file-block] .bn-file-name-with-icon {
+  background-color: #2a2a2a; /* A dark grey background */
+  color: #cccccc; /* A light grey for the text */
+  border: 1px solid #444444; /* A subtle border */
+}
+
+/* Style for when hover over the file upload blocks */
+.dark .bn-container .bn-editor[contenteditable=true] [data-file-block] .bn-add-file-button:hover,
+.dark .bn-container [data-file-block] .bn-file-name-with-icon:hover {
+    background-color: #3a3a3a;
+    border-color: #666666;
+}
+
+.bn-container .bn-bg-popover {
+    background-color: #2a2a2a;
+}
+
+.bn-container .bn-text-muted-foreground{
+    background-color: #4f4e4eac;
+}
+
+.bn-container .data-\[state\=active\]\:bn-bg-background[data-state="active"]{
+    background-color: #2a2a2a;
+    color: white;
+}
+
+.bn-container .bn-bg-card{
+    background-color: #4f4e4e5e;
+    border: #2a2a2a;
+}
+
+.bn-shadcn * {
+    border-color: #f2eeee16;
+}
+    
+.bn-container .bn-bg-background{
+    background-color: #2a2a2a;
+    border: #77777700;
+}
