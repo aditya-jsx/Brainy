@@ -87,7 +87,7 @@ export function Heroes() {
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-8 leading-tight">
             Your mind. Organized.
             <br />
-            <span className="text-3xl md:text-4xl font-bold text-white leading-tight">
+            <span className="text-md md:text-xl font-bold text-white leading-tight p-4">
               Brainy is your second brain — where notes, tasks, and ideas come together so you can focus on what matters most.
             </span>
           </h2>
