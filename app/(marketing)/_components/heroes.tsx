@@ -87,7 +87,9 @@ export function Heroes() {
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-8 leading-tight">
             Your mind. Organized.
             <br />
-            Organize your ideas. Build your second brain.
+            Organize your ideas,
+            <br />
+            Build your second brain.
           </h2>
 
           <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
